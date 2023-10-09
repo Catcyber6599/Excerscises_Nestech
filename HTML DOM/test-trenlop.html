@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body></body>
+    <script>
+        const users = [
+            { id: 1, name: 'k18' },
+            { id: 1, name: 'k19' },
+            { id: 1, name: 'k20' },
+        ]
+        const ulElement = document.createElement('ul')
+        for (let index = 0; index < users.length; index++) {
+            const liElement = document.createElement('li')
+            liElement.innerText =
+                'id: ' + users[index].id + ', name: ' + users[index].name
+            ulElement.appendChild(liElement)
+        }
+        document.body.appendChild(ulElement)
+    </script>
+</html>

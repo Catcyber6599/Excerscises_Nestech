@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bài 1</title>
+        <style>
+            .gradient-text {
+                background-image: linear-gradient(to right, red, blue);
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+            .size-text {
+                font-size: 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="demo">Hello, Thầy Nam!</p>
+    </body>
+
+    <script>
+        const demoElement = document.getElementById('demo')
+        demoElement.innerHTML = 'Xin chào, Việt Nam!'
+
+        // Thêm class "gradient-text" vào phần tử
+        demoElement.setAttribute('class', 'gradient-text')
+
+        // Lấy danh sách class hiện có của phần tử
+        const currentClasses = demoElement.getAttribute('class')
+
+        // Thêm class "size-text" vào danh sách class hiện có
+        const newClassAttribute = currentClasses + ' size-text'
+
+        // Đặt lại thuộc tính class của phần tử
+        demoElement.setAttribute('class', newClassAttribute)
+        demoElement.appendChild(newClassAttribute)
+    </script>
+</html>

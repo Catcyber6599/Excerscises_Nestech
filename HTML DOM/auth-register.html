@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Đăng ký</title>
+        <link rel="stylesheet" href="./auth-register.css" />
+    </head>
+    <body>
+        <h1>Form Đăng Ký</h1>
+        <form id="registrationForm">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div>
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="password" />
+            </div>
+            <div>
+                <label for="rePassword">Nhập lại mật khẩu:</label>
+                <input type="password" id="rePassword" />
+            </div>
+
+            <div>
+                <label for="sex">Giới tính:</label>
+                <label for="male">
+                    <input type="radio" id="male" name="gender" value="male" />
+                    Nam
+                </label>
+                <label for="female">
+                    <input
+                        type="radio"
+                        id="female"
+                        name="gender"
+                        value="female"
+                    />
+                    Nữ
+                </label>
+            </div>
+
+            <div>
+                <label for="birthdate">Ngày sinh:</label>
+                <input type="date" id="birthdate" />
+            </div>
+            <div>
+                <button type="submit">Đăng ký</button>
+            </div>
+        </form>
+        <p>
+            Bạn đã có tài khoản?
+            <span><a href="auth-login.html">Đăng nhập ngay</a></span>
+        </p>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const registrationForm =
+                    document.getElementById('registrationForm')
+                const emailInput = document.getElementById('email')
+                const passwordInput = document.getElementById('password')
+                const rePasswordInput = document.getElementById('rePassword')
+                const birthdateInput = document.getElementById('birthdate')
+                const submitButton = document.querySelector(
+                    "button[type='submit']"
+                )
+
+                // Thiết lập ban đầu: nút Đăng ký bị vô hiệu hóa
+                submitButton.disabled = true
+
+                // Kiểm tra khi người dùng nhập liệu
+                registrationForm.addEventListener('input', function () {
+                    const email = emailInput.value
+                    const password = passwordInput.value
+                    const rePassword = rePasswordInput.value
+                    const birthdate = new Date(birthdateInput.value)
+                    const currentDate = new Date()
+
+                    // Kiểm tra xem tất cả ô input đã được điền chưa
+                    const allFieldsFilled =
+                        email && password && rePassword && birthdateInput.value
+
+                    submitButton.disabled = !allFieldsFilled
+                })
+
+                // Khi người dùng ấn nút đăng ký
+                registrationForm.addEventListener('submit', function (e) {
+                    e.preventDefault() // Ngăn chặn gửi form mặc định
+
+                    // Lúc này chúng ta kiểm tra điều kiện và hiển thị thông báo lỗi
+                    const email = emailInput.value
+                    const password = passwordInput.value
+                    const rePassword = rePasswordInput.value
+                    const birthdate = new Date(birthdateInput.value)
+                    const currentDate = new Date()
+                    const gender = document.querySelector(
+                        'input[name="gender"]:checked'
+                    )
+
+                    if (
+                        emailIsValid(email) &&
+                        passwordIsValid(password) &&
+                        rePassword === password &&
+                        birthdate <= currentDate &&
+                        gender
+                    ) {
+                        alert('Đăng ký thành công!')
+                        registrationForm.reset()
+                        submitButton.disabled = true
+                        // window.location.href = 'auth-login.html'
+
+                        // Lưu mật khẩu vào cookie
+                        document.cookie = 'password=' + password
+                    } else {
+                        let errorMessage = 'Bạn chưa nhập đủ thông tin yêu cầu.'
+
+                        if (!emailIsValid(email)) {
+                            errorMessage = 'Email không đúng định dạng!'
+                        } else if (!passwordIsValid(password)) {
+                            errorMessage =
+                                'Mật khẩu phải có ít nhất 6 ký tự và chứa ít nhất 1 ký tự viết hoa!'
+                        } else if (rePassword !== password) {
+                            errorMessage = 'Mật khẩu nhập lại không đúng!'
+                        } else if (!gender) {
+                            errorMessage = 'Vui lòng chọn giới tính!'
+                        } else if (birthdate > currentDate) {
+                            errorMessage =
+                                'Ngày sinh phải nhỏ hơn hoặc bằng ngày hiện tại!'
+                        }
+
+                        alert(errorMessage)
+                    }
+                })
+
+                // Hàm kiểm tra định dạng email
+                function emailIsValid(email) {
+                    const regex =
+                        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+                    return regex.test(email)
+                }
+
+                // Hàm kiểm tra điều kiện mật khẩu
+                function passwordIsValid(password) {
+                    return /[A-Z]/.test(password) && password.length >= 6
+                }
+            })
+        </script>
+    </body>
+</html>

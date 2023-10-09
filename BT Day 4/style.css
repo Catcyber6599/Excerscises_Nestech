@@ -1,0 +1,40 @@
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'SVN-Gilroy', sans-serif;
+    box-sizing: border-box;
+}
+.content {
+    padding: 40px 100px;
+}
+.image img {
+    width: 750px;
+    border-radius: 16px;
+}
+.text {
+    box-shadow: 5px 10px 32px 0px rgba(200, 149, 149, 0.5);
+    border-radius: 16px;
+    padding: 40px 60px;
+    width: 350px;
+}
+.user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.top {
+    border: 1px solid;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.top p {
+    font-size: 10px;
+    text-align: center;
+    line-height: 30px;
+}
+.more {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

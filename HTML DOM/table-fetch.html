@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Table</title>
+    </head>
+    <style>
+        .red-text {
+            color: red;
+        }
+        .green-text {
+            color: green;
+        }
+        .blue-text {
+            color: blue;
+        }
+        tr {
+            transition: opacity 0.2s;
+        }
+    </style>
+    <body></body>
+    <script>
+        const tableEle = document.createElement('table')
+        tableEle.innerHTML = `<thead><tr><th>STT</th><th>ID</th><th>Name</th></tr></thead><tbody></tbody>`
+        document.body.appendChild(tableEle)
+
+        //lấy dữ liệu từ URL
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then((response) => response.json())
+            .then((data) => {
+                data.forEach((user, index) => {
+                    const row = document.createElement('tr')
+                    row.innerHTML = `<td>${index + 1}</td><td>${
+                        user.id
+                    }</td><td>${user.name}</td>`
+
+                    if ((index + 1) % 3 === 0) {
+                        row.classList.add('red-text')
+                    } else if ((index + 1) % 3 === 1) {
+                        row.classList.add('green-text')
+                    } else {
+                        row.classList.add('blue-text')
+                    }
+
+                    //hover
+                    row.addEventListener('mouseenter', () => {
+                        row.style.opacity = 0.5
+                    })
+                    row.addEventListener('mouseleave', () => {
+                        row.style.opacity = 1
+                    })
+
+                    tableEle.querySelector('tbody').appendChild(row)
+                })
+            })
+            .catch((e) => {
+                console.log('Đã xảy ra lỗi', e)
+            })
+    </script>
+</html>

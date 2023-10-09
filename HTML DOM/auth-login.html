@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Đăng nhập</title>
+        <link rel="stylesheet" href="./auth-register.css" />
+    </head>
+    <body>
+        <h1>Form Đăng Nhập</h1>
+        <form id="loginForm">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="special">
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="password" />
+                <span
+                    ><a href="./forgot-password.html">Quên mật khẩu ?</a></span
+                >
+            </div>
+
+            <div>
+                <button type="submit" id="loginbutton">Đăng nhập</button>
+            </div>
+        </form>
+        <p>
+            Bạn chưa có tài khoản?
+            <span><a href="./auth-register.html">Đăng kí tại đây</a></span>
+        </p>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const loginForm = document.getElementById('loginForm')
+                const emailInput = document.getElementById('email')
+                const passwordInput = document.getElementById('password')
+                const loginButton = document.getElementById('loginbutton')
+
+                // Thiết lập ban đầu: nút Đăng nhập bị vô hiệu hóa
+                loginButton.disabled = true
+
+                loginForm.addEventListener('input', function () {
+                    const email = emailInput.value
+                    const password = passwordInput.value
+
+                    // Kiểm tra xem tất cả ô input đã được điền chưa
+                    const allFieldsFilled = email && password
+
+                    loginButton.disabled = !allFieldsFilled
+                })
+
+                loginForm.addEventListener('submit', function (e) {
+                    e.preventDefault() // Ngăn chặn gửi form mặc định
+
+                    const email = emailInput.value
+                    const password = passwordInput.value
+
+                    // Kiểm tra xem có cookie loggedIn hay không
+                    const cookies = document.cookie.split(';')
+                    const loggedInCookie = cookies.find((cookie) =>
+                        cookie.trim().startsWith('loggedIn=')
+                    )
+
+                    if (loggedInCookie) {
+                        // Đoạn mã kiểm tra mật khẩu ở đây
+                        if (checkPassword(password)) {
+                            alert('Bạn đã đăng nhập thành công!')
+                        } else {
+                            alert('Sai tài khoản hoặc mật khẩu!.')
+                        }
+                    } else {
+                        alert('Bạn chưa đăng nhập.')
+                    }
+                })
+
+                // Hàm kiểm tra mật khẩu từ cookie
+                function checkPassword(password) {
+                    const cookies = document.cookie.split(';')
+                    const passwordCookie = cookies.find((cookie) =>
+                        cookie.trim().startsWith('password=')
+                    )
+                    if (passwordCookie) {
+                        const savedPassword = passwordCookie.split('=')[1]
+                        return password === savedPassword
+                    }
+                    return false
+                }
+            })
+        </script>
+    </body>
+</html>

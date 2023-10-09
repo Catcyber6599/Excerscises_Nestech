@@ -1,0 +1,384 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('../images/img1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 60rem;
+}
+.text-top {
+    display: flex;
+    justify-content: space-between;
+}
+.logo {
+    display: flex;
+    padding: 5rem 10rem;
+    flex-direction: column;
+    line-height: 1.3;
+}
+.logo h2 {
+    font-family: 'SVN-Bon Voyage', sans-serif;
+    color: #fff;
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+}
+.logo p {
+    display: flex;
+    justify-content: center;
+    font-family: 'Beauty Club Regular', sans-serif;
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5rem;
+}
+.menu {
+    padding: 5rem 10rem;
+}
+.menu ul {
+    display: flex;
+    list-style: none;
+
+    gap: 10rem;
+}
+.menu > ul > li > a {
+    font-family: 'PosteramaTextW07-Thin', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 1rem;
+}
+.text-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 8rem 10rem;
+}
+.text-bottom h2 {
+    font-family: 'Silver South Serif', sans-serif;
+    color: #fff;
+    font-size: 3rem;
+    text-transform: uppercase;
+    width: 30%;
+    line-height: 1.5;
+}
+.text-bottom p {
+    font-family: 'PosteramaTextW07-Thin', sans-serif;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    width: 29%;
+    line-height: 1.3;
+}
+
+.about {
+    display: flex;
+    padding: 10rem 0;
+}
+.about-text {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    height: 55rem;
+    background-image: url('../images/background-image.png');
+    padding: 5rem 10rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    gap: 1.5rem;
+}
+.about-text h2 {
+    font-family: 'Silver South Serif', sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+.about-text p {
+    font-family: 'PosteramaTextW07-Thin', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    line-height: 1.3;
+}
+.about-text p:nth-child(2) {
+    width: 78%;
+}
+.about-text p:nth-child(3) {
+    width: 84%;
+}
+.about-text p:nth-child(4) {
+    width: 78%;
+}
+.about-text p:nth-child(5) {
+    width: 78%;
+}
+.about-text button {
+    width: 35%;
+    padding: 1rem;
+    border: 3px solid black;
+    font-family: 'PosteramaTextW07', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 10rem;
+}
+.about-image {
+    background-image: url('../images/img3.png');
+    width: 45%;
+    height: 55rem;
+    background-size: cover;
+}
+.interiou {
+    display: flex;
+}
+.interiou > .about-image {
+    display: flex;
+    justify-content: flex-end;
+    background-image: url('../images/img2.jpg');
+    width: 55%;
+    height: 55rem;
+    background-size: cover;
+}
+.interiou > .about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 45%;
+    height: 55rem;
+    background-image: none;
+    padding: 0rem 6rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    gap: 3rem;
+    background-color: #f0f0f0;
+}
+.interiou > .about-text p:nth-child(2) {
+    width: 66%;
+}
+.interiou > .about-text p:nth-child(3) {
+    width: 68%;
+}
+.interiou > .about-text p:nth-child(4) {
+    width: 66%;
+}
+.interiou > .about-text p:nth-child(5) {
+    width: 68%;
+}
+.interiou > .about-text p:nth-child(6) {
+    width: 66%;
+}
+.interiou > .about-text button {
+    margin-top: 3.5rem;
+    background-color: #fff;
+}
+.interiou > .about-image > .about-text {
+    gap: 3rem;
+    background-image: none;
+    text-align: right;
+}
+.interiou > .about-image > .about-text h2 {
+    color: #fff;
+    line-height: 3;
+    font-size: 2.5rem;
+    font-weight: 600;
+    width: 114%;
+}
+.interiou > .about-image > .about-text p {
+    color: #fff;
+}
+.interiou > .about-image > .about-text p:nth-child(2) {
+    width: 115%;
+}
+.interiou > .about-image > .about-text p:nth-child(3) {
+    width: 115%;
+}
+.interiou > .about-image > .about-text p:nth-child(4) {
+    width: 115%;
+}
+.interiou > .about-image > .about-text span {
+    color: #fff;
+    letter-spacing: 2rem;
+    font-size: 6rem;
+    width: 125%;
+}
+.swimming-pool {
+    background-color: #f0f0f0;
+    display: flex;
+    padding: 10rem 0;
+}
+.swimming-pool > .about-text {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 55rem;
+    background-image: none;
+    padding: 1rem 10rem;
+    gap: 3rem;
+}
+.swimming-pool > .about-image {
+    display: flex;
+    background-image: url('../images/img3.jpg');
+    width: 55%;
+    height: 55rem;
+    background-size: cover;
+}
+.swimming-pool > .about-image > .about-text {
+    background-image: none;
+    width: 100%;
+}
+.swimming-pool > .about-image > .about-text h2 {
+    color: #fff;
+    font-weight: 500;
+}
+.swimming-pool > .about-image > .about-text p {
+    color: #fff;
+}
+.swimming-pool > .about-text > button {
+    margin-top: 2rem;
+    background-color: #fff;
+}
+.swimming-pool > .about-text p:nth-child(3) {
+    width: 80%;
+}
+.swimming-pool > .about-text p:nth-child(6) {
+    width: 80%;
+}
+.swimming-pool > .about-image > .about-text p:nth-child(2) {
+    width: 55%;
+}
+.swimming-pool > .about-image > .about-text p:nth-child(3) {
+    width: 48%;
+}
+.swimming-pool > .about-image > .about-text p:nth-child(4) {
+    width: 48%;
+}
+.swimming-pool > .about-image > .about-text span {
+    color: #fff;
+    letter-spacing: 2rem;
+    font-size: 6rem;
+    width: 125%;
+}
+.gallery {
+    display: flex;
+}
+.gallery > .about-image {
+    background-image: url('../images/img4.jpg');
+    background-color: #f0f0f0;
+}
+.tittle h2 {
+    padding: 1rem 10rem;
+    font-family: 'Silver South Serif', sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    line-height: 1.5;
+    background-color: #f0f0f0;
+}
+.instagram {
+    padding: 10rem 10rem;
+}
+.instagram h2 {
+    font-family: 'Silver South Serif', sans-serif;
+    margin-bottom: 6rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    line-height: 1.5;
+    background-color: #fff;
+}
+.gallery > .about-image img {
+    height: 55rem;
+}
+.gallery > .about-text {
+    justify-content: center;
+    gap: 6rem;
+}
+.gallery > .about-text h2 {
+    font-family: 'Century', sans-serif;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+}
+.gallery > .about-text h2:nth-child(1) {
+    text-align: center;
+}
+.gallery > .about-text h2:nth-child(2) {
+    text-align: right;
+    width: 80%;
+}
+.instagram > .total-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6rem;
+    justify-content: space-between;
+}
+.instagram > .total-images > .nature-images {
+    width: 30%;
+    height: 40rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.instagram > .total-images > .nature-images.box1 {
+    background-image: url('../images/img4.jpg');
+}
+.instagram > .total-images > .nature-images.box2 {
+    background-image: url('../images/img5.jpg');
+}
+.instagram > .total-images > .nature-images.box3 {
+    background-image: url('../images/img6.jpg');
+}
+.instagram > .total-images > .nature-images.box4 {
+    background-image: url('../images/img7.jpg');
+}
+.instagram > .total-images > .nature-images.box5 {
+    background-image: url('../images/img8.jpg');
+}
+.instagram > .total-images > .nature-images.box6 {
+    background-image: url('../images/img1.jpg');
+}
+.instagram button {
+    padding: 1.5rem 5rem;
+    margin-top: 5rem;
+    text-transform: uppercase;
+    background-color: #fff;
+    letter-spacing: 0.1rem;
+    font-size: 1.5rem;
+}
+
+footer {
+    font-family: 'PosteramaTextW07-Thin', sans-serif;
+    width: 100%;
+    background-color: black;
+    height: 30rem;
+}
+.detail-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 7rem 10rem;
+}
+.detail-footer > .row li {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.detail-footer > .row li a {
+    text-decoration: none;
+    color: #fbf6f6;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.detail-footer > .row li a i {
+    margin-left: 4rem;
+}
+.row > .logo {
+    padding: 0;
+}

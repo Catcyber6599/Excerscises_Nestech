@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Live Server Example</title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>stt</th>
+                    <th>id</th>
+                    <th>name</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                <!-- Dữ liệu người dùng sẽ được thêm vào đây bằng JavaScript -->
+            </tbody>
+        </table>
+
+        <script>
+            const users = [
+                {
+                    id: 1,
+                    name: 'k18',
+                },
+                {
+                    id: 2,
+                    name: 'k19',
+                },
+                // ... tự động
+            ]
+
+            // Lấy thẻ tbody để thêm dữ liệu vào
+            const tbody = document.getElementById('userTable')
+
+            // In tiêu đề
+            const theadRow = document.createElement('tr')
+            theadRow.innerHTML = '<th>stt</th><th>id</th><th>name</th>'
+            tbody.appendChild(theadRow)
+
+            // Thêm dữ liệu người dùng
+            users.forEach((user, index) => {
+                const { id, name } = user
+                const row = document.createElement('tr')
+                row.innerHTML = `<td>${
+                    index + 1
+                }</td><td>${id}</td><td>${name}</td>`
+                tbody.appendChild(row)
+            })
+        </script>
+    </body>
+</html>

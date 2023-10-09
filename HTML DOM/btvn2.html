@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body></body>
+    <script>
+        const usersArray = [
+            { name: 'Nam', subject: 'Math' },
+            { name: 'Quốc', subject: 'Science' },
+            { name: 'Quyết', subject: 'History' },
+            { name: 'Hiếu', subject: 'English' },
+        ]
+        // Cách 1: dùng vòng for
+        // Tạo thẻ ul chứa danh sách người dùng
+        const ulElement = document.createElement('ul')
+
+        // Duyệt qua mảng người dùng và tạo các phần tử <li> cho mỗi người dùng
+        for (let index = 0; index < usersArray.length; index++) {
+            const liElement = document.createElement('li')
+
+            const liText = document.createTextNode(
+                'name: ' +
+                    usersArray[index].name +
+                    ', subject: ' +
+                    usersArray[index].subject
+            )
+
+            liElement.appendChild(liText)
+            ulElement.appendChild(liElement)
+        }
+
+        // Thêm phần tử <ul> vào DOM (ví dụ: vào body)
+        document.body.appendChild(ulElement)
+
+        // Cách 2: Dùng map
+    </script>
+</html>

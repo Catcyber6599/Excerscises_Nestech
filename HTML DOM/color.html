@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 id="h1">k19</h1>
+    </body>
+    <script>
+        const h1Element = document.getElementById('h1')
+        h1.appendChild(h1Element)
+        h1.setAttribute('class', 'green' + h1Element)
+    </script>
+    <style>
+        .green {
+            color: green;
+        }
+        .blue {
+            color: blue;
+        }
+        .fontSize {
+            font-size: 30px;
+        }
+    </style>
+</html>

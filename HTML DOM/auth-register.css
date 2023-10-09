@@ -1,0 +1,113 @@
+/* CSS cho form */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* CSS cho form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #ccc;
+    width: 400px; /* Đặt độ rộng cố định cho form */
+    margin: 0 auto; /* Để căn giữa form trên trình duyệt */
+}
+
+/* CSS cho label */
+label {
+    font-weight: bold;
+    margin-right: 10px;
+    flex: 1;
+    min-width: 100px;
+}
+
+/* CSS cho input */
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='date'] {
+    flex: 2;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* CSS cho radio buttons */
+div p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+label input[type='radio'] {
+    margin-right: 5px;
+}
+
+/* CSS cho nút Đăng ký */
+button[type='submit'] {
+    padding: 10px 30px; /* Thay đổi padding để làm cho nút dài hơn */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%; /* Đảm bảo nút rộng 100% của container */
+    margin-top: 10px; /* Khoảng cách từ nút lên trên */
+}
+
+button[type='submit']:enabled {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* CSS cho nút khi trạng thái disabled */
+button[type='submit']:disabled {
+    background-color: #0056b3;
+    color: #ccc; /* Màu chữ xám để tạo sự phân biệt */
+}
+
+/* CSS cho radio buttons */
+.gender-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Khoảng cách giữa các ô radio */
+}
+
+.gender-options label {
+    display: flex;
+    align-items: center;
+}
+
+.gender-options input[type='radio'] {
+    margin-right: 5px;
+}
+
+span > a {
+    text-decoration: none;
+    color: red;
+}
+.special {
+    display: flex;
+    flex-direction: column;
+}
+.special > span {
+    text-align: right;
+}
+.special > span > a {
+    color: #888;
+    font-size: 14px;
+    font-weight: 400;
+}

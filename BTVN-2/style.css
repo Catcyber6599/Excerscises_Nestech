@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui;
+}
+:root {
+    --text-color: #7f56d9;
+    --text-color-1: #667085;
+    --text-color-2: #101828;
+    --text-color-3: #6941c6;
+    --text-color-4: #3538cd;
+    --text-color-5: #c11574;
+    --text-color-6: #027a48;
+    --text-color-7: #c4320a;
+    --text-color-8: #ececf3;
+    --background-color-1: #f9f5ff;
+    --background-color-2: #eef4ff;
+    --background-color-3: #fdf2fa;
+    --background-color-4: #ecfdf3;
+    --background-color-5: #fff6ed;
+    --background-color-6: #f8f9fc;
+    --background-color-7: #f0f9ff;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.content span {
+    color: var(--text-color-1);
+}
+.content h1 {
+    margin: 20px 0 20px 0;
+}
+.content p {
+    width: 60%;
+    text-align: center;
+    font-size: 25px;
+    color: var(--text-color-1);
+}
+.content > .input-text span {
+    font-size: 12px;
+    color: #c4b9b9;
+}
+.input-text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 30px 0 0 0;
+    gap: 15px;
+}
+.detail-input {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+input {
+    padding: 10px 50px;
+    border: 1px solid var(--text-color-8);
+    border-radius: 5px;
+    padding-left: 5px;
+}
+.input-text button {
+    border: none;
+    height: 40px;
+    background-color: var(--text-color);
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+}
+.container {
+    display: flex;
+    padding: 0px 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+h3 {
+    margin: 96px 0 32px 96px;
+}
+a {
+    color: var(--text-color-1);
+}
+.post {
+    display: flex;
+    width: 1280px;
+    margin: 0 96px;
+    gap: 32px;
+}
+.post-detail {
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+.image-post img {
+    width: 100%;
+}
+.text-image {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+.text-image span {
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.text-image p {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-color-1);
+}
+.arrow {
+    display: flex;
+    width: 100%;
+}
+.arrow h4 {
+    width: 100%;
+    font-size: 24px;
+}
+.arrow img {
+    height: 20px;
+    width: 20px;
+}
+.color-button {
+    display: flex;
+    justify-content: space-between;
+    width: 44%;
+}
+.violet-button button {
+    display: flex;
+    color: var(--text-color);
+    font-weight: 500;
+    line-height: 20px;
+    border: none;
+    border-radius: 16px;
+    padding: 2px 10px;
+    align-items: center;
+    background-color: var(--background-color-1);
+}
+.blue-button button {
+    display: flex;
+    color: var(--text-color-4);
+    font-weight: 500;
+    line-height: 20px;
+    border: none;
+    border-radius: 16px;
+    padding: 2px 10px;
+    align-items: center;
+    background-color: var(--background-color-2);
+}
+.light-blue-button button {
+    display: flex;
+    color: var(--text-color-8);
+    font-weight: 500;
+    line-height: 20px;
+    border: none;
+    border-radius: 16px;
+    padding: 2px 10px;
+    align-items: center;
+    background-color: var(--background-color-7);
+}
+.pink-button button {
+    display: flex;
+    color: var(--text-color-5);
+    font-weight: 500;
+    line-height: 20px;
+    border: none;
+    border-radius: 16px;
+    padding: 2px 10px;
+    align-items: center;
+    background-color: var(--background-color-3);
+}
+.green-button button {
+    display: flex;
+    color: var(--text-color-6);
+    font-weight: 500;
+    line-height: 20px;
+    border: none;
+    border-radius: 16px;
+    padding: 2px 10px;
+    align-items: center;
+    background-color: var(--background-color-4);
+}
+.gray-button button {
+    display: flex;
+    color: var(--text-color-1);
+    font-weight: 500;
+    line-height: 20px;
+    border: none;
+    border-radius: 16px;
+    padding: 2px 10px;
+    align-items: center;
+    background-color: var(--background-color-6);
+}
+.red-button button {
+    display: flex;
+    color: var(--text-color-7);
+    font-weight: 500;
+    line-height: 20px;
+    border: none;
+    border-radius: 16px;
+    padding: 2px 10px;
+    align-items: center;
+    background-color: var(--background-color-5);
+}
+.blog-post {
+    display: grid;
+    width: 45%;
+    align-items: flex-start;
+    gap: 32px;
+}
+.blog-post-card {
+    display: flex;
+    align-self: stretch;
+    gap: 32px;
+}
+.blog-post-card img {
+    width: 320px;
+    height: 200px;
+}
+.blog-post-card-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+}
+.blog-post-card-text span {
+    color: var(--text-color-3);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.blog-post-card-text h5 {
+    color: var(--text-color-2);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+}
+.blog-post-card-text p {
+    color: var(--text-color-1);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.blog-post-color-button {
+    display: flex;
+    justify-content: space-between;
+    width: 58%;
+    margin-top: 8px;
+}
+.total-blog {
+    display: flex;
+    padding: 0px 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+.total-blog h3 {
+    margin: 96px 0 0 96px;
+}
+.blog-detail {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1280px;
+    gap: 32px;
+    margin: 0 96px;
+}
+.blog-element {
+    display: grid;
+    gap: 32px;
+    width: 28.6%;
+}
+.blog-element-image img {
+    width: 100%;
+}
+.blog-element-color-button {
+    display: flex;
+    justify-content: space-between;
+    width: 54%;
+}
+.blog-element-color-button-1 {
+    display: flex;
+    justify-content: space-between;
+    width: 69%;
+}
+.blog-element-color-button-2 {
+    display: flex;
+    justify-content: space-between;
+    width: 39%;
+}
+.blog-element-color-button-3 {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+}
+.blog-element-color-button-4 {
+    display: flex;
+    justify-content: space-between;
+    width: 57%;
+}
+footer {
+    width: 79%;
+    margin: 32px 120px;
+}
+footer hr {
+    border: 1px solid #ececf3;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 32px;
+    width: 100%;
+}
+
+.page {
+    display: flex;
+    width: 40px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    text-decoration: none;
+}
+.page-number {
+    display: flex;
+}
+.page:hover {
+    background-color: #f4f4f4;
+}
+
+.page span {
+    display: inline-block;
+}
+.page-click {
+    display: flex;
+    width: 40px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 8px;
+    background-color: var(--background-color-1);
+    text-decoration: none;
+    color: var(--text-color);
+}
+.arrow-page {
+    display: flex;
+}
+
+@media (max-width: 375px) {
+    .content h1 {
+        width: 88%;
+        text-align: center;
+    }
+    .content p {
+        font-size: 18px;
+        width: 80%;
+    }
+    input {
+        width: 100%;
+    }
+    .input-text {
+        flex-direction: column;
+    }
+    .detail-input {
+        width: 100%;
+    }
+    .input-text button {
+        margin-left: 0;
+        width: 100%;
+    }
+}

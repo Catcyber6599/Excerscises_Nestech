@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+    </head>
+    <body>
+        <div class="content">
+            <div class="dropdown-arrow"></div>
+            <div class="image">
+                <img src="./BTVN-1/image/demo.webp" alt="" />
+                <div class="camera">
+                    <input type="file" />
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+                <div class="anh"></div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    .content {
+        width: 100px;
+        height: 20px;
+        border-radius: 20px;
+        position: relative;
+    }
+    .content:hover > .popup {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 30px;
+        background-color: aqua;
+        cursor: pointer;
+    }
+    .chermark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 24px;
+        background-color: var(--menu-color);
+        cursor: pointer;
+    }
+    .chermark::after {
+        content: '';
+    }
+    .popup {
+        display: none;
+    }
+    .image img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+    .camera {
+        position: relative;
+        border: 1px solid;
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+        top: -30px;
+        left: 70px;
+        overflow: hidden;
+    }
+    .camera i {
+        position: absolute;
+        top: 3px;
+        left: 5px;
+        z-index: 0;
+    }
+    .camera input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 1;
+    }
+    .anh {
+        background-image: url('https://www.google.com.vn/url?sa=i&url=https%3A%2F%2Fsnapshot.canon-asia.com%2Fvn%2Farticle%2Fviet%2Flandscape-photography-quick-tips-for-stunning-deep-focused-images&psig=AOvVaw3H661pPJbuXAiPPahk7m32&ust=1691504830821000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKiD2tbgyoADFQAAAAAdAAAAABAE');
+    }
+</style>

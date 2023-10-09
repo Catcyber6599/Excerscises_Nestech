@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Đăng nhập</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        />
+        <style>
+            /* CSS cho form */
+
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            /* CSS cho form */
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px 0px #ccc;
+                width: 400px; /* Đặt độ rộng cố định cho form */
+                margin: 0 auto; /* Để căn giữa form trên trình duyệt */
+            }
+
+            /* CSS cho label */
+            label {
+                font-weight: bold;
+                margin-right: 10px;
+                flex: 1;
+                min-width: 100px;
+            }
+
+            /* CSS cho input */
+            input[type='text'],
+            input[type='password'],
+            input[type='email'],
+            input[type='date'] {
+                flex: 2;
+                box-sizing: border-box;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+                width: 100%;
+            }
+
+            /* CSS cho radio buttons */
+            div p {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            label input[type='radio'] {
+                margin-right: 5px;
+            }
+
+            /* CSS cho nút Đăng ký */
+            button[type='submit'] {
+                padding: 10px 30px; /* Thay đổi padding để làm cho nút dài hơn */
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+                width: 100%; /* Đảm bảo nút rộng 100% của container */
+                margin-top: 10px; /* Khoảng cách từ nút lên trên */
+            }
+
+            button[type='submit']:enabled {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+            /* CSS cho nút khi trạng thái disabled */
+            button[type='submit']:disabled {
+                background-color: #0056b3;
+                color: #ccc; /* Màu chữ xám để tạo sự phân biệt */
+            }
+
+            /* CSS cho radio buttons */
+            .gender-options {
+                display: flex;
+                flex-direction: column;
+                gap: 10px; /* Khoảng cách giữa các ô radio */
+            }
+
+            .gender-options label {
+                display: flex;
+                align-items: center;
+            }
+
+            .gender-options input[type='radio'] {
+                margin-right: 5px;
+            }
+
+            span > a {
+                text-decoration: none;
+                color: red;
+            }
+            .special {
+                display: flex;
+                flex-direction: column;
+            }
+            .special > span {
+                text-align: right;
+            }
+            .special > span > a {
+                visibility: visible;
+                color: #888;
+                font-size: 14px;
+                font-weight: 400;
+            }
+
+            .email > i {
+                position: absolute;
+                right: 545px;
+                top: 34.5%;
+                color: green;
+                display: none;
+            }
+            #emailStatus,
+            #passwordStatus {
+                display: flex;
+                color: red;
+                visibility: hidden;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Form Đăng Nhập</h1>
+        <form id="loginForm">
+            <div class="email">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+                <i class="fas fa-check-circle"></i>
+                <div class="error-message" id="emailStatus">
+                    Email không tồn tại trong hệ thống
+                </div>
+            </div>
+
+            <div class="special">
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="password" />
+                <div class="error-message" id="passwordStatus">
+                    Password không hợp lệ
+                </div>
+                <span
+                    ><a href="./forgot-password.html">Quên mật khẩu ?</a></span
+                >
+            </div>
+
+            <div>
+                <button type="submit" id="loginbutton">Đăng nhập</button>
+            </div>
+        </form>
+        <p>
+            Bạn chưa có tài khoản?
+            <span><a href="./auth-register.html">Đăng kí tại đây</a></span>
+        </p>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const loginForm = document.getElementById('loginForm')
+                const emailInput = document.getElementById('email')
+                const passwordInput = document.getElementById('password')
+                const emailStatusIcon =
+                    document.querySelector('.fa-check-circle')
+                const emailStatus = document.getElementById('emailStatus')
+                const passwordStatus = document.getElementById('passwordStatus')
+                const loginButton = document.getElementById('loginbutton')
+
+                // Thiết lập ban đầu: nút Đăng ký bị vô hiệu hóa
+                loginButton.disabled = true
+                // Mảng email và mật khẩu đã đăng ký
+                const users = [
+                    { email: 'admin@example.com', password: 'Admin123' },
+                    { email: 'user@example.com', password: 'User123' },
+                ]
+
+                emailInput.addEventListener('input', function () {
+                    const email = emailInput.value
+
+                    // Đặt biến isEmailExists mặc định là false
+                    let isEmailExists = false
+
+                    // Kiểm tra xem email có tồn tại trong danh sách người dùng không
+                    users.forEach(function (user) {
+                        if (user.email === email) {
+                            isEmailExists = true
+                        }
+                    })
+
+                    if (isEmailExists) {
+                        emailStatusIcon.style.display = 'inline'
+                        emailStatus.style.visibility = 'hidden'
+                    } else {
+                        emailStatusIcon.style.display = 'none'
+                        emailStatus.textContent =
+                            'Email không tồn tại trong hệ thống'
+                        emailStatus.style.visibility = 'visible'
+                    }
+                })
+
+                passwordInput.addEventListener('input', function () {
+                    const password = passwordInput.value
+
+                    // Kiểm tra xem người dùng đã nhập ít nhất một ký tự cho mật khẩu chưa
+                    if (password.length > 0) {
+                        // Kiểm tra mật khẩu
+                        if (isValidPassword(password)) {
+                            passwordStatus.style.visibility = 'hidden'
+                            loginButton.disabled = false
+                        } else {
+                            // Hiển thị thông báo lỗi về mật khẩu
+                            passwordStatus.textContent = 'Mật khẩu không hợp lệ'
+                            passwordStatus.style.visibility = 'visible'
+                            loginButton.disabled = true
+                        }
+                    }
+                })
+
+                loginForm.addEventListener('submit', function (e) {
+                    e.preventDefault()
+
+                    const email = emailInput.value
+                    const password = passwordInput.value
+
+                    // Kiểm tra lại một lần nữa trước khi gửi form
+                    const isEmailValid = isValidEmail(email)
+
+                    if (isEmailValid) {
+                        // Kiểm tra xem email có tồn tại và mật khẩu khớp với bất kỳ mục nào trong mảng người dùng không
+                        const isLoginValid = users.some(function (user) {
+                            return (
+                                user.email === email &&
+                                user.password === password
+                            )
+                        })
+
+                        if (isLoginValid) {
+                            alert('Đăng nhập thành công!')
+                            // Thực hiện các hành động đăng nhập thực tế ở đây
+                        } else {
+                            alert('Sai mật khẩu. Vui lòng kiểm tra lại.')
+                        }
+                    }
+                })
+
+                // Hàm kiểm tra định dạng email
+                function isValidEmail(email) {
+                    const regex =
+                        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+                    return regex.test(email)
+                }
+
+                // Hàm kiểm tra mật khẩu
+                function isValidPassword(password) {
+                    const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{6,}$/
+                    return passwordRegex.test(password)
+                }
+            })
+        </script>
+    </body>
+</html>
